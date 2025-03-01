@@ -142,6 +142,11 @@ def eval_step(
     return avg_loss, avg_accuracy
 
 
+def init_cnn(module):
+    if type(module) == nn.Linear or type(module) == nn.Conv2d:
+        nn.init.xavier_uniform_(module.weight)
+
+
 def layer_summary(model, X_shape):
     """
     Prints a summary of the model's layers, including layer name, type,
