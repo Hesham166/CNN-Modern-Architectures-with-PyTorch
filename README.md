@@ -39,7 +39,7 @@ We will explore key CNN architectures and train them on a resized version of [CI
 1. [**AlexNet (Krizhevsky et al., 2012):**](https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf) The first large-scale network deployed to beat conventional computer vision methods on a large-scale vision challenge, leveraging ReLU activations and dropout for improved performance. ([notebook](./01_alexnet.ipynb))
 2. [**Network in Network (NiN) (Lin et al., 2013):**](https://arxiv.org/abs/1312.4400) A pioneering approach that convolves whole neural networks patch-wise over inputs, introducing mlpconv layers to enhance feature abstraction. ([notebook](./02_network_in_network.ipynb))
 3. [**VGG Network (Simonyan and Zisserman, 2014):**](https://arxiv.org/abs/1409.1556) A model that makes use of a number of repeating blocks of elements, known for its simplicity and deep stacks of small 3x3 convolution filters. ([notebook](./03_vgg.ipynb))
-4. [**GoogLeNet (Szegedy et al., 2015):**](https://arxiv.org/abs/1409.4842) An architecture that uses networks with multi-branch convolutions, introducing the Inception module to capture features at multiple scales efficiently.
+4. [**GoogLeNet (Szegedy et al., 2015):**](https://arxiv.org/abs/1409.4842) An architecture that uses networks with multi-branch convolutions, introducing the Inception module to capture features at multiple scales efficiently. ([notebook](./04_googlenet.ipynb))
 5. [**Residual Network (ResNet) (He et al., 2016):**](https://arxiv.org/abs/1512.03385) A widely adopted framework that remains one of the most popular off-the-shelf architectures in computer vision, utilizing residual connections to enable training of very deep networks.
 6. [**ResNeXt Blocks (Xie et al., 2017):**](https://openaccess.thecvf.com/content_cvpr_2017/papers/Xie_Aggregated_Residual_Transformations_CVPR_2017_paper.pdf) An advancement for sparser connections, extending ResNet with grouped convolutions to enhance efficiency and performance.
 7. [**DenseNet (Huang et al., 2017):**](https://arxiv.org/abs/1608.06993) A generalization of the residual architecture, where each layer connects to every previous layer, promoting feature reuse and parameter efficiency.
@@ -48,3 +48,4 @@ We will explore key CNN architectures and train them on a resized version of [CI
 
 Code Reference:
 - [Dive Into Deep Learning - Zhang et al.](https://d2l.ai/)
+- [TorchVision](https://github.com/pytorch/vision)
