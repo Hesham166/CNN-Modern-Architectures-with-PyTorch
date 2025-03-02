@@ -17,7 +17,7 @@ Compared with general artificial neurons, CNN possesses many advantages:
 ### Basic CNN Components
 ---
 ![](imgs/image.png) 
->> Image source: [analyticsvidhya](https://www.analyticsvidhya.com/blog/2022/03/basics-of-cnn-in-deep-learning/)
+> Image source: [analyticsvidhya](https://www.analyticsvidhya.com/blog/2022/03/basics-of-cnn-in-deep-learning/)
 
 Many CNN models follow a fixed structure: an input layer, alternating convolution and pooling layers that form a feature extractor, fully connected layers with activation functions, and an output layer. The feature extractor converts raw input into higher level representations, which are then used for tasks like classification or regression. Additional componentssuch as batch normalization and dropout furthur enhance performance.
 
@@ -37,8 +37,8 @@ Many CNN models follow a fixed structure: an input layer, alternating convolutio
 We will explore key CNN architectures and train them on a resized version of [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html). The list is organized chronologically and is not exhaustive. 
 
 1. [**AlexNet (Krizhevsky et al., 2012):**](https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf) The first large-scale network deployed to beat conventional computer vision methods on a large-scale vision challenge, leveraging ReLU activations and dropout for improved performance. ([notebook](./01_alexnet.ipynb))
-2. [**Network in Network (NiN) (Lin et al., 2013):**](https://arxiv.org/abs/1312.4400) A pioneering approach that convolves whole neural networks patch-wise over inputs, introducing mlpconv layers to enhance feature abstraction.
-3. [**VGG Network (Simonyan and Zisserman, 2014):**](https://arxiv.org/abs/1409.1556) A model that makes use of a number of repeating blocks of elements, known for its simplicity and deep stacks of small 3x3 convolution filters.
+2. [**Network in Network (NiN) (Lin et al., 2013):**](https://arxiv.org/abs/1312.4400) A pioneering approach that convolves whole neural networks patch-wise over inputs, introducing mlpconv layers to enhance feature abstraction. ([notebook](./02_network_in_network.ipynb))
+3. [**VGG Network (Simonyan and Zisserman, 2014):**](https://arxiv.org/abs/1409.1556) A model that makes use of a number of repeating blocks of elements, known for its simplicity and deep stacks of small 3x3 convolution filters. ([notebook](./03_vgg.ipynb))
 4. [**GoogLeNet (Szegedy et al., 2015):**](https://arxiv.org/abs/1409.4842) An architecture that uses networks with multi-branch convolutions, introducing the Inception module to capture features at multiple scales efficiently.
 5. [**Residual Network (ResNet) (He et al., 2016):**](https://arxiv.org/abs/1512.03385) A widely adopted framework that remains one of the most popular off-the-shelf architectures in computer vision, utilizing residual connections to enable training of very deep networks.
 6. [**ResNeXt Blocks (Xie et al., 2017):**](https://openaccess.thecvf.com/content_cvpr_2017/papers/Xie_Aggregated_Residual_Transformations_CVPR_2017_paper.pdf) An advancement for sparser connections, extending ResNet with grouped convolutions to enhance efficiency and performance.
