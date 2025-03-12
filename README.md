@@ -43,6 +43,6 @@ We will explore key CNN architectures and train them on a resized version of [CI
 5. [**Residual Network (ResNet) (He et al., 2016):**](https://arxiv.org/abs/1512.03385) A widely adopted framework that remains one of the most popular off-the-shelf architectures in computer vision, utilizing residual connections to enable training of very deep networks. ([notebook](./05_resnet.ipynb))
 6. [**ResNeXt Blocks (Xie et al., 2017):**](https://openaccess.thecvf.com/content_cvpr_2017/papers/Xie_Aggregated_Residual_Transformations_CVPR_2017_paper.pdf) An advancement for sparser connections, extending ResNet with grouped convolutions to enhance efficiency and performance. ([notebook](./06_resnext.ipynb))
 
-Code Reference:
+**Code References:**
 - [Dive Into Deep Learning - Zhang et al.](https://d2l.ai/)
 - [TorchVision](https://github.com/pytorch/vision)
