@@ -146,43 +146,39 @@ def init_cnn(module):
     if type(module) == nn.Linear or type(module) == nn.Conv2d:
         nn.init.xavier_uniform_(module.weight)
 
+def init_kaiming(m):
+    if isinstance(m, nn.Conv2d):
+        nn.init.kaiming_normal_(m.weight, mode='fan_in', nonlinearity='relu')
+        if m.bias is not None:
+            nn.init.zeros_(m.bias)
+    elif isinstance(m, nn.Linear):
+        nn.init.kaiming_normal_(m.weight, mode='fan_in', nonlinearity='relu')
+        if m.bias is not None:
+            nn.init.zeros_(m.bias)
+    elif isinstance(m, nn.BatchNorm2d):
+        nn.init.constant_(m.weight, 1)
+        nn.init.constant_(m.bias, 0)
+
 
 def layer_summary(model, X_shape):
     """
-    Prints a summary of the model's layers, including layer name, type,
-    number of trainable parameters, and output shape.
+    Prints a concise summary of each layer's output shape in the model.
 
     Args:
-        model (torch.nn.Module): The neural network model.
-        X_shape (tuple): Shape of the input tensor (including batch size).
+        model (torch.nn.Module): The PyTorch neural network model
+        X_shape (tuple): Shape of the input tensor (including batch size)
     """
-    X = torch.randn(*X_shape)  # Generate a random input tensor
-    total_params = 0
-    header = f"{'Layer Name':30} {'Layer Type':20} {'Param #':>10} {'Output Shape':>20}"
-    print(header)
-    print("=" * len(header))
-
-    for name, module in model.named_modules():
-        # Skip the top-level module
-        if name == "":
+    X = torch.randn(*X_shape)
+    print(f"Input shape: {X_shape}")
+    print("-" * 40)
+    
+    for name, layer in model.named_modules():
+        if name == "" or list(layer.children()):  # Skip root and container modules
             continue
-
-        # Consider only leaf modules (actual layers)
-        if list(module.children()):
-            continue
-
-        # Count trainable parameters
-        params = sum(p.numel() for p in module.parameters() if p.requires_grad)
-        total_params += params
-
-        # Forward pass through the layer to get output shape
         try:
-            X = module(X)
+            X = layer(X)
+            print(f"{layer.__class__.__name__:<15} output shape: {tuple(X.shape)}")
         except Exception as e:
-            print(f"{name:30} {module.__class__.__name__:20} {params:10d} {'Error':>20}")
-            continue
-
-        print(f"{name:30} {module.__class__.__name__:20} {params:10d} {str(tuple(X.shape)):>20}")
-
-    print("=" * len(header))
-    print(f"{'Total Parameters':60} {total_params:10d}")
+            print(f"{layer.__class__.__name__:<15} output shape: Error - {str(e)[:30]}")
+    
+    print("-" * 40)
